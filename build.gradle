@@ -1,0 +1,28 @@
+apply plugin: "java"
+apply plugin: "application"
+
+
+//
+
+// Specify the Application settings
+applicationName = 'ISDKTEstApplication'
+mainClassName = "de.appdynamics.ace.isdk.lab.application.main.Main"
+applicationDefaultJvmArgs = ["-Xms50m","-Xmx50m"]
+
+repositories {
+    jcenter()
+//    maven {
+//        url "https://raw.github.com/Appdynamics/artifact-library/master/repo/"
+//    }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.6'
+    testCompile 'junit:junit:4.12'
+    compile 'com.appdynamics.ace.cli:CommandFramework:1.6.1'
+
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+  
+}
+
