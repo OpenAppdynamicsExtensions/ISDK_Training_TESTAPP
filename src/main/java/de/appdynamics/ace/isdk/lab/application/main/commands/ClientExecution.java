@@ -34,10 +34,10 @@ public class ClientExecution extends SandboxExecution {
         gs_TCPClientPort = Integer.parseInt(optionWrapper.getOptionValue("tcpServerPort", "8989"));
 
         try {
-            this.addJob(new SimpleLocalExecution("Business Calls",10,2000,200));
-            this.addJob(new SimpleLocalExecution("Business Backends",9,215,20));
+            this.addJob(new SimpleLocalExecution("Business Calls",10,2000,200)).setWeight(4);
+            this.addJob(new SimpleLocalExecution("Business Backends",9,215,20)).setWeight(9);
 
-            if(optionWrapper.hasOption("enableTCP")) this.addJob(new TCPClientSimple("localhost",gs_TCPClientPort));
+            if(optionWrapper.hasOption("enableTCP")) this.addJob(new TCPClientSimple("localhost",gs_TCPClientPort)).setWeight(2);
 
             this.addJob(new GoogleBackendCall("SearchCustomerDetail","Customer","de"));
             this.addJob(new AsyncCallback("SimpleAsync",5,30,45,true));

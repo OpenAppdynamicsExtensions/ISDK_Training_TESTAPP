@@ -35,7 +35,6 @@ public class TCPClientSimple extends Job {
         _port = i;
         _hostname = s;
 
-        System.out.println("Setup to "+_hostname+":"+_port);
 
 
     }
@@ -83,7 +82,6 @@ public class TCPClientSimple extends Job {
         try {
             String json = writer.writeValueAsString(m);
 
-            System.out.println("Connecting to "+_hostname+":"+_port);
             Socket socket = new Socket(_hostname,_port);
             OutputStream out = socket.getOutputStream();
             String s = writer.writeValueAsString(m);

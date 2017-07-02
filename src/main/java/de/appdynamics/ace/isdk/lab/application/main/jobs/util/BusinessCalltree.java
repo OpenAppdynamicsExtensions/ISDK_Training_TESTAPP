@@ -108,5 +108,17 @@ public class BusinessCalltree {
         }
 
         int localValue = i*2;
+        String customerCode = categoryName.toUpperCase()+"::"+localValue;
+
+        debugCustomCodec(customerCode);
+
+    }
+
+    private void debugCustomCodec(String customerCode) {
+        try {
+            Thread.sleep(43);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
